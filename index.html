@@ -77,7 +77,7 @@
 
     <!-- music play section  -->
 
-    <section class="music-player-section">
+    <section class="music-player-section active">
         <ion-icon name="arrow-back-outline" class="back-btn icon hide"></ion-icon>
         <ion-icon name="grid-outline" class="nav-btn icon hide"></ion-icon>
 
@@ -91,16 +91,19 @@
             <p class="duration hide">00 : 00</p>
         </div>
         <div class="controls">
-            <span class="fas fa-redo"><ion-icon name="refresh-outline"></ion-icon></span>
+            <span class="fas fa-redo">
+                <ion-icon name="refresh-outline"></ion-icon>
+            </span> 
             <div class="main">
-                <ion-icon name="play-back-outline" class="fas fa-backward active"   ></ion-icon>
+                <ion-icon name="play-back-outline" class="fas fa-backward active" ></ion-icon>
                 <ion-icon name="play-outline" class="fas fa-play active"></ion-icon>
                 <ion-icon name="pause-outline" class="fas fa-pause"></ion-icon>
                 <ion-icon name="play-forward-outline" class="fas fa-forward active"></ion-icon>
-
             </div>
                 <input type="range" class="volume-slider" max="1" value="1" step="0.1">
-                <span class="fas fa-volume-up"><ion-icon name="volume-high-outline"></ion-icon></span>
+                <span class="fas fa-volume-up">
+                    <ion-icon name="volume-high-outline"></ion-icon>
+                </span>
         </div>
 
     </section>
