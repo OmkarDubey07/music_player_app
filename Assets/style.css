@@ -275,3 +275,73 @@ html{
     background: var(--primary-color);
     box-shadow: -200px 0 1px 200px var(--primary-color);
 }
+
+/* playlist section */
+
+
+.playlist{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    padding: 30px 0;
+    background: var(--background);
+    z-index: 3;
+    transition: 1s;
+    overflow: auto;
+}
+
+.playlist.active{
+    right: 0;
+}
+.title{
+    font-weight: 300;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 15px;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+}
+
+.queue{
+    width: 100%;
+    height: 80px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    border-top: 2px solid var(--alpha-color);
+}
+
+.queue-cover{
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-right: 20px;
+    position: relative;
+}
+.queue-cover img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.queue-cover ion-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: var(--primary-color);
+    display: none;
+}
+
+.queue.active i{
+    display: block;
+}
+
+.queue .name{
+    font-size: 22px;
+    text-transform: capitalize;
+}
