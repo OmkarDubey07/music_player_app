@@ -56,3 +56,9 @@ navBtn.addEventListener('click', () => {
 
 // back from playlist to music player
 
+const backTOMusicPlayer  = document.querySelector('.playlist .back-btn');
+
+backTOMusicPlayer.addEventListener('click', () => {
+    playlistSection.classList.remove('active');
+});
+
