@@ -91,6 +91,7 @@ const volumeSlider = document.querySelector(".volume-slider");
 // function for setting up music
 
 let currentMusic = 0;
+
 const setMusic = (i) => {
   seekBar.value = 0;
   let song = songs[i];
@@ -103,30 +104,32 @@ const setMusic = (i) => {
   coverImage.src = song.cover;
 
   setTimeout(() => {
-    seekBar.max = music.duration;
-    musicDuration.innerHTML = formatTime(music.duration);
+      seekBar.max = music.duration;
+      musicDuration.innerHTML = formatTime(music.duration);
   }, 300);
-  currentMusicTime.innerHTML = "00 : 00";
-  queue.forEach((item) => item.classList.remove("active"));
-  queue[currentMusic].classList.add("active");
-};
+  currentMusicTime.innerHTML = '00 : 00';
+  queue.forEach(item => item.classList.remove('active'));
+  queue[currentMusic].classList.add('active');
+}
 
 setMusic(0);
 
 // format duration in 00 : 00 format
 
+
 const formatTime = (time) => {
   let min = Math.floor(time / 60);
-  if (min < 10) {
-    min = `0` + min;
+  if(min < 10){
+      min = `0` + min;
   }
 
   let sec = Math.floor(time % 60);
-  if (sec < 10) {
-    sec = `0` + sec;
+  if(sec < 10){
+      sec = `0` + sec;
   }
+
   return `${min} : ${sec}`;
-};
+}
 
 // now we'll add play/pause event
 
@@ -170,4 +173,38 @@ backwardBtn.addEventListener("click", () => {
   playBtn.click();
 });
 
+// seekBar event
 
+setInterval(() => {
+  seekBar.value = music.currentMusicTime;
+  currentMusicTime.innerHTML = formatTime(music.currentTime);
+  if (Math.floor(music.currentTime) == Math.floor(seekBar.max)) {
+    if (repeatBtn.className.includes("active")) {
+      setMusic(currentMusic);
+      playBtn.click();
+    } else {
+      forwardBtn.click();
+    }
+  }
+}, 500);
+
+seekBar.addEventListener('change', () => {
+  music.currentTime = seekBar.value;
+});
+
+// repeat button 
+
+repeatBtn.addEventListener('click', () => {
+  repeatBtn.classList.toggle('active');
+});
+
+// volume section
+
+volumeBtn.addEventListener('click', () => {
+  volumeBtn.classList.toggle('active');
+  volumeSlider.classList.toggle('active');
+});
+
+volumeSlider.addEventListener('input', () => {
+  music.volume = volumeSlider.value;
+});
