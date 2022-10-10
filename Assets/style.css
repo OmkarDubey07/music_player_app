@@ -337,7 +337,7 @@ html{
     display: none;
 }
 
-.queue.active i{
+.queue.active ion-icon{
     display: block;
 }
 

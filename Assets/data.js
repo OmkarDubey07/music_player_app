@@ -41,4 +41,5 @@ let songs = [
         artist : 'artist 7' ,
         cover: './music/song7.mp3' 
     }
-]
+];
+

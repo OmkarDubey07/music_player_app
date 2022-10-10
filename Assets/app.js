@@ -1,3 +1,4 @@
+
 //  for play photos automatically after 3 sec.
 
 const carousel = [...document.querySelectorAll(".carousel img")];
@@ -68,6 +69,7 @@ backTOMusicPlayer.addEventListener("click", () => {
 // navigation done now ---------------------------
 
 // now from here we'll start to add function for musics.
+let currentMusic = 0;
 
 const music = document.querySelector("#audio-source");
 const seekBar = document.querySelector(".music-seek-bar");
@@ -90,26 +92,26 @@ const volumeSlider = document.querySelector(".volume-slider");
 
 // function for setting up music
 
-let currentMusic = 0;
+
 
 const setMusic = (i) => {
-  seekBar.value = 0;
-  let song = songs[i];
-  currentMusic = i;
+    seekBar.value = 0;
+    let song = songs[i];
+    currentMusic = i;
 
-  music.src = song.path;
+    music.src = song.path;
 
-  songName.innerHTML = song.name;
-  artistName.innerHTML = song.artist;
-  coverImage.src = song.cover;
+    songName.innerHTML = song.name;
+    artistName.innerHTML = song.artist;
+    coverImage.src = song.cover;
 
-  setTimeout(() => {
-      seekBar.max = music.duration;
-      musicDuration.innerHTML = formatTime(music.duration);
-  }, 300);
-  currentMusicTime.innerHTML = '00 : 00';
-  queue.forEach(item => item.classList.remove('active'));
-  queue[currentMusic].classList.add('active');
+    setTimeout(() => {
+        seekBar.max = music.duration;
+        musicDuration.innerHTML = formatTime(music.duration);
+    }, 300);
+    currentMusicTime.innerHTML = ' 00 : 00 ';
+    queue.forEach(item => item.classList.remove('active'));
+    queue[currentMusic].classList.add('active');
 }
 
 setMusic(0);
